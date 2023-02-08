@@ -1,0 +1,55 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+  
+  .robotBox {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .robot {
+    width: 25%;
+    height: 25%;
+    position: relative;
+    animation-name: robot;
+    animation-duration: 0.75s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+  }
+  
+  .balloonBox {
+    display: flex;
+    justify-content: center;
+    margin-left: 10px;
+    position: relative;
+  }
+  
+  .balloon {
+    width: 50%;
+    height: 25%;
+  }
+  
+  .welcomeText {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .footer {
+    position: fixed;
+    font-weight: bold;
+    bottom: 10%;
+    text-align: center;
+  }
+  
+  @keyframes robot {
+    0% { left: 0px; top: 0px; }
+    100% { left: 10px; top: 0px; }
+  }
+  

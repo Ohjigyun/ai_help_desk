@@ -28,52 +28,48 @@ export default function SpeechBox( props: SpeechBoxProps ) {
         recognition.continuous = false;
         recognition.interimResults = true;
         recognition.maxAlternatives = 1;
-        setTimeout(() => {
-            setListeningState(true)
-            recognition.start()
-        }, 2000)
+        setListeningState(true)
+        recognition.start()
 
     }, [])
 
-    // const handleOnButton = (e: React.MouseEvent<HTMLButtonElement>) => {
-    //     setListeningState(true)
-    //     recognition.start()
-    // }
-
-    // const handleOffButton = (e: React.MouseEvent<HTMLButtonElement>) => {
-    //     setListeningState(false)
-    //     recognition.stop()
-    // }
+    const handleListeningState = (e: React.MouseEvent<HTMLButtonElement>) => {
+        setListeningState(true)
+        recognition.start()
+    }
 
     useEffect(() => {
         if(listeningState){
             recognition.onresult = (event: any) => {
                 const text = event.results[0][0].transcript
+                const isFinal = event.results[0].isFinal
+                if(isFinal){
+                    setListeningState(false)
+                }
                 setRequest(text)
             }
         }
     }, [listeningState])
 
     useEffect(() => {
-        if(props.welcomeMessage){
-            if(request === '회원가입'){
-                router.push('/signup')
-                return
-            }
-            if(request === '로그인'){
-                router.push('/signin')
-                return
-            }
-            if(request === '웹 페이지 이동'){
-                router.push('/simple-request')
-                return
-            }
-            if(request === 'AI 체험'){
-                router.push('/complex-request')
-                return
-            }
+        // 메뉴 선택
+        if(request === '회원가입'){
+            router.push('/signup')
+            return
         }
-
+        if(request === '로그인'){
+            router.push('/signin')
+            return
+        }
+        if(request === '웹 페이지 이동'){
+            router.push('/simple-request')
+            return
+        }
+        if(request === 'AI 체험'){
+            router.push('/complex-request')
+            return
+        }
+        // 웹페이지 이동        
         type ListOfWeb = [string, string]
         
         const webList: ListOfWeb[] = [
@@ -84,7 +80,11 @@ export default function SpeechBox( props: SpeechBoxProps ) {
             ['유튜브', 'https://www.youtube.com'],
             ['넷플릭스', 'https://www.netflix.com'],
             ['웨이브', 'https://www.wavve.com'],
-            ['티빙', 'https://www.tving.com']
+            ['티빙', 'https://www.tving.com'],
+            ['구글', 'https://google.com'],
+            ['쿠팡', 'https://coupang.com'],
+            ['아마존', 'https://amazon.com'],
+            ['스택오버플로우', 'https://stackoverflow.com/']
         ]
 
         for(const web of webList){
@@ -103,12 +103,14 @@ export default function SpeechBox( props: SpeechBoxProps ) {
             
     }, [targetWebPage])
 
+    console.log(listeningState)
     return (
         <div className={styles.container}>
-            {/* <textarea className={styles.RequestText} value={request} readOnly></textarea> */}
-            <div className={styles.RequestText}>{request}</div>
-            {/* <button onClick={handleOnButton}>on</button>
-            <button onClick={handleOffButton}>off</button> */}
+            <div className={styles.RequestText}>{props.welcomeMessage}</div>
+            {listeningState ? 
+                null
+                :
+                <button onClick={handleListeningState}>재입력</button>}
         </div>
     )
 }
