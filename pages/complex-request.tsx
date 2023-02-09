@@ -11,7 +11,7 @@ export default function ComplexRequest() {
   const [recognition, setRecognition] = useState<any>(null)
   const [listeningState, setListeningState] = useState<boolean>(false)
   const [request, setRequest] = useState<string>('')
-  const [qnaLog, setQnaLog] = useState<string[]>([''])
+  const [qnaLog, setQnaLog] = useState<string[]>([])
 
   useEffect(() => {
     const { webkitSpeechRecognition } = (window as any)
@@ -87,8 +87,8 @@ export default function ComplexRequest() {
           <div className={styles.qnaLog} key={index}>
             {index % 2 === 0 ? <Image className={styles.astronaut} src={astronaut} alt="astronaut icon"/>
                                 :
-                                <Image className={qnaLog.length - 1 === index && index >= 5 ? `${styles.robot} ${styles.lastChat}` : `${styles.robot}`} src={robot} alt="robot icon"/>}
-            <div className={qnaLog.length - 1 === index && index >= 5 ? `${styles.chat} ${styles.lastChat}` : `${styles.chat}`}>{qna}</div>
+                                <Image className={qnaLog.length - 1 === index ? `${styles.robot} ${styles.lastChat}` : `${styles.robot}`} src={robot} alt="robot icon"/>}
+            <div className={qnaLog.length - 1 === index ? `${styles.chat} ${styles.lastChat}` : `${styles.chat}`}>{qna}</div>
           </div>
         ))}
         <div className={styles.questionBox}>
