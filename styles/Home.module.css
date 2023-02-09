@@ -59,8 +59,9 @@
 .footer {
   position: fixed;
   font-weight: bold;
-  bottom: 10%;
+  bottom: 5%;
   text-align: center;
+  font-size: 10px;
 }
 
 @keyframes robot {

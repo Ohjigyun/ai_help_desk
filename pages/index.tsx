@@ -44,7 +44,7 @@ export default function Home() {
       <div className={styles.robotBox}>
         <Image className={styles.robot} src={robot} alt="Robot icon"/>
       </div>
-      <footer className={styles.footer}>이 웹 앱은 모바일 환경에서는 작동하지 않습니다. <br />image copyright vecteezy</footer>
+      <footer className={styles.footer}>이 웹 앱은 모바일 환경을 고려하지 않았으니<br /> 데스크톱 환경에서 접속하시는 것을 권장합니다. <br />image copyright vecteezy</footer>
     </div>
   )
 }
