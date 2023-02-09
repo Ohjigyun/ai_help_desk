@@ -16,12 +16,12 @@
 
 .qnaLog:nth-child(odd) {
     background-color: #f7f7f7;
-    border-bottom: 0.5px solid #d4d4d4;
+    border-top: 0.5px solid #d4d4d4;
 }
 
 .qnaLog:nth-child(even) {
     background-color: #fff;
-    border-bottom: 0.5px solid #d4d4d4;
+    border-top: 0.5px solid #d4d4d4;
 }
 
 .chat {

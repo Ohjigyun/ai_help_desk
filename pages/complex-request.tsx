@@ -14,7 +14,7 @@ export default function ComplexRequest() {
 
     async function onSubmit(event: React.FormEvent<HTMLFormElement>) {
         event.preventDefault();
-        setQnaLog((prev) => [...prev, request])
+        setQnaLog((prev) => [...prev, request, ''])
         for(let i = 0; i < 10; i++){
           try {
             const response = await fetch("/api/generate", {
@@ -30,7 +30,7 @@ export default function ComplexRequest() {
               throw data.error || new Error(`Request failed with status ${response.status}`);
             }
             
-            setQnaLog((prev) => [...prev, data.result])
+            setQnaLog((prev) => [...prev.slice(0, prev.length - 1), data.result])
             setResult(data.result);
             setRequest("");
             return;
