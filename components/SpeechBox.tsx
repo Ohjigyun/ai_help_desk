@@ -103,7 +103,6 @@ export default function SpeechBox( props: SpeechBoxProps ) {
             
     }, [targetWebPage])
 
-    console.log(listeningState)
     return (
         <div className={styles.container}>
             <div className={styles.RequestText}>{props.welcomeMessage}</div>
