@@ -12,8 +12,8 @@
   }
   
   .robot {
-    width: 25%;
-    height: 25%;
+    width: 80%;
+    height: 80%;
     position: relative;
     animation-name: robot;
     animation-duration: 0.75s;

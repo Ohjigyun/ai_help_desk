@@ -12,8 +12,8 @@
 }
 
 .robot {
-  width: 25%;
-  height: 25%;
+  width: 80%;
+  height: 80%;
   position: relative;
   animation-name: robot;
   animation-duration: 0.75s;
@@ -36,9 +36,24 @@
 
 .welcomeText {
   position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+.menuBox {
+  text-align: center;
+  padding: 3px;
+}
+
+.menu {
+  display: inline;
+  margin: 0 5px;
+  font-weight: bold;
+  cursor: pointer;
 }
 
 .footer {
