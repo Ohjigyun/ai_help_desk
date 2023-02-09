@@ -6,9 +6,80 @@
     min-height: 100vh;
 }
 
+.qnaLog {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 3rem;
+}
+
+.qnaLog:nth-child(odd) {
+    background-color: #f7f7f7;
+    border-bottom: 0.5px solid #d4d4d4;
+}
+
+.qnaLog:nth-child(even) {
+    background-color: #fff;
+    border-bottom: 0.5px solid #d4d4d4;
+}
+
+.chat {
+    padding: 2rem 1rem;
+    width: 40rem;
+}
+
+.robot {
+    width: 5%;
+    height: 5%;
+    padding: 0.5% 0 0.5% 1.5%;
+    margin-right: 2.5%;
+}
+
+.astronaut {
+    width: 5%;
+    height: 5%;
+    padding: 0.5% 0 0.5% 1.5%;
+    margin-right: 2.5%;
+}
+
+.questionBox {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    bottom: 3.5%;
+    padding: 2% 0 2% 0;
+    background-color: #fff;
+}
+
+.questionText {
+    width: 40rem;
+    height: 3rem;
+    margin: 2rem 0;
+    padding-left: 0.5rem;
+    box-shadow: rgba(0, 0, 0, 0.1) -4px 9px 25px -6px;
+}
+
+.sendButton {
+    width: 2rem;
+    height: 2rem;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    margin-left: 0.5rem;
+}
+
 .footer {
     position: fixed;
+    width: 100%;
+    padding: 1.5% 0 1.5% 0;
+    background-color: #fff;
     font-weight: bold;
-    bottom: 10%;
+    bottom: 0%;
     text-align: center;
-  }
+}
+
+.lastChat{
+    margin-bottom: 20%;
+}

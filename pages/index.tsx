@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import SpeechBox from '../components/SpeechBox'
-import robot from '../assets/images/vecteezy_robot.jpg'
+import robot from '../assets/images/vecteezy_robot.png'
 import balloon from '../assets/images/speech_bubble.png'
 import styles from '../styles/Home.module.css'
 
