@@ -98,7 +98,7 @@ export default function Signup() {
             return;
         }
 
-        if(!(email.includes('@') && email.includes('.'))){
+        if(!(email.includes('@') && email.includes('.')) && email.length >= 1){
             setEmailCheckMsg('올바른 이메일 형식이 아닙니다.')
             setCheckEmailAndPw(false)
             return;
