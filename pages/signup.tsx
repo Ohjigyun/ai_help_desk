@@ -12,9 +12,18 @@ export default function Signup() {
     
     const [email, setEmail] = useState<string>('')
     const [password, setPassword] = useState<string>('')
+    const [emailCheckMsg, setEmailCheckMsg] = useState<string>('')
+    const [pwCheckMsg, setPwCheckMsg] = useState<string>('')
+    const [checkEmailAndPw, setCheckEmailAndPw] = useState<boolean>(false)
 
     const submitHandler = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
+        
+        if(!checkEmailAndPw) {
+            console.log('validation check failed')
+            return;
+        }
+
         createUserWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                 const user = userCredential.user
@@ -80,6 +89,33 @@ export default function Signup() {
     }
 
     useEffect(() => {
+        const regexForEmailCheck = /^[a-z0-9@\.]{5,25}$/
+        const regexForPwCheck = /^[A-Za-z0-9`~!@#\$%\^&\*\(\)\{\}\[\]\-_=\+\\|;:'"<>,\./\?]{6,12}$/
+
+        if(!regexForEmailCheck.test(email) && email.length >= 1) {
+            setEmailCheckMsg('5~25자 영문 소문자, 숫자만 사용 가능합니다.')
+            setCheckEmailAndPw(false)
+            return;
+        }
+
+        if(!(email.includes('@') && email.includes('.'))){
+            setEmailCheckMsg('올바른 이메일 형식이 아닙니다.')
+            setCheckEmailAndPw(false)
+            return;
+        }
+
+        if(!regexForPwCheck.test(password) && password.length >= 1) {
+            setPwCheckMsg('6~12자 내 영문, 숫자, 특수문자를 사용해주세요.')
+            setCheckEmailAndPw(false)
+            return;
+        }
+
+        setCheckEmailAndPw(true)
+        setPwCheckMsg('')
+        setEmailCheckMsg('')
+    }, [email, password])
+
+    useEffect(() => {
         const user = auth.currentUser
 
         if(user) {
@@ -102,6 +138,7 @@ export default function Signup() {
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
                         />
+                        <div className={styles.checkEmailAndPw}>{emailCheckMsg}</div>
                     </div>
                     <div className={styles.passwordBox}>
                         <div>비밀번호</div>
@@ -112,6 +149,7 @@ export default function Signup() {
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
                         />
+                        <div className={styles.checkEmailAndPw}>{pwCheckMsg}</div>
                     </div>
                     <div className={styles.buttonBox}>
                         <button className={styles.signupButton}>회원 가입</button>
