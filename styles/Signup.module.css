@@ -1,0 +1,89 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f7f7f7;
+}
+
+.formBox {
+    min-width: 25%;
+    padding: 3%;
+    border-radius: 15px;
+    background-color: #fff;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.emailBox {
+    margin-bottom: 1rem;
+}
+
+.email {
+    width: 100%;
+    border-radius: 5px;
+    min-height: 1.5rem;
+}
+
+.passwordBox {
+    margin-bottom: 2rem;
+}
+
+.password {
+    width: 100%;
+    min-height: 1.5rem;
+    border-radius: 5px;
+}
+
+.buttonBox {
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.signupButton {
+    color: #fff;
+    font-weight: bold;
+    width: 80%;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    background-color: #ED5684;
+    margin-bottom: 1rem;
+    cursor: pointer;
+}
+
+.line {
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid #d4d4d4;
+    line-height: 0.1em;
+    margin: 10px 0 20px;
+}
+
+.lineText {
+    padding: 0 10px;
+    background-color: #fff;
+}
+
+.socialBox {
+    margin-top: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.faGoogle {
+    margin: 0 1rem;
+    cursor: pointer;
+}
+
+.faGithub {
+    margin: 0 1rem;
+    cursor: pointer;
+}

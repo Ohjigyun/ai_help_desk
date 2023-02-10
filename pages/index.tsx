@@ -1,12 +1,15 @@
+import { useState, useEffect } from 'react'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
+import { auth } from './api/firebase'
 import SpeechBox from '../components/SpeechBox'
 import robot from '../assets/images/vecteezy_robot.png'
 import balloon from '../assets/images/speech_bubble.png'
 import styles from '../styles/Home.module.css'
 
 export default function Home() {
-  const welcomeMessage = `안녕하세요? \n 저는 헬프봇입니다.\n 원하시는 메뉴를 말씀해주세요.`
+  const [currentUser, setCurrentUser] = useState<string>('')
+  const welcomeMessage = `${currentUser ? `${currentUser}님 ` : ''}안녕하세요? \n 저는 헬프봇입니다.\n 원하시는 메뉴를 말씀해주세요.`
   const router = useRouter()
 
   const signupClickHandler = () => {
@@ -24,6 +27,18 @@ export default function Home() {
   const complexRequestClickHandler = () => {
     router.push('/complex-request')
   }
+
+  useEffect(() => {
+    const user = auth.currentUser
+
+    if(user){
+      const name = user.email
+      const id = (name as string).split('@')[0]
+      
+      setCurrentUser(id)
+    }
+
+  }, [])
 
   return (
     <div className={styles.container}>
