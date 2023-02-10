@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import { auth } from './api/firebase'
-import { createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, signInWithRedirect } from 'firebase/auth'
+import { createUserWithEmailAndPassword, GoogleAuthProvider, GithubAuthProvider, signInWithPopup } from 'firebase/auth'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGoogle, faGithub } from '@fortawesome/free-brands-svg-icons'
 
@@ -9,7 +9,7 @@ import styles from '../styles/Signup.module.css'
 
 export default function Signup() {
     const router = useRouter()
-    
+    const provider = new GoogleAuthProvider()
     
     const [email, setEmail] = useState<string>('')
     const [password, setPassword] = useState<string>('')
@@ -30,8 +30,7 @@ export default function Signup() {
     }
 
     const googleLogin = () => {
-        const provider = new GoogleAuthProvider()
-
+        console.log(auth)
         signInWithPopup(auth, provider)
             .then((result) => {
             // This gives you a Google Access Token. You can use it to access the Google API.
@@ -54,6 +53,29 @@ export default function Signup() {
             // ...
             console.log(error)
             });
+    }
+
+    const githubLogin = () => {
+        signInWithPopup(auth, provider)
+        .then((result) => {
+          // This gives you a GitHub Access Token. You can use it to access the GitHub API.
+          const credential = GithubAuthProvider.credentialFromResult(result);
+          const token = credential?.accessToken;
+      
+          // The signed-in user info.
+          const user = result.user;
+          // IdP data available using getAdditionalUserInfo(result)
+          // ...
+        }).catch((error) => {
+          // Handle Errors here.
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          // The email of the user's account used.
+          const email = error.customData.email;
+          // The AuthCredential type that was used.
+          const credential = GithubAuthProvider.credentialFromError(error);
+          // ...
+        });
     }
 
     useEffect(() => {
@@ -98,7 +120,7 @@ export default function Signup() {
                 <div className={styles.line}><span className={styles.lineText}> OR </span></div>
                 <div className={styles.socialBox}>
                     <FontAwesomeIcon className={styles.faGoogle} icon={faGoogle} size='2x' onClick={googleLogin}/>
-                    <FontAwesomeIcon className={styles.faGithub} icon={faGithub} size='2x'/>
+                    <FontAwesomeIcon className={styles.faGithub} icon={faGithub} size='2x' onClick={githubLogin}/>
                 </div>
             </div>
         </div>
