@@ -68,3 +68,15 @@
   0% { left: 0px; top: 0px; }
   100% { left: 10px; top: 0px; }
 }
+
+@media (max-width: 640px) { 
+  .balloon {
+    width: 70%;
+    height: 25%;
+  }
+
+  .balloonBox {
+    font-size: 10px;
+  }
+
+} 

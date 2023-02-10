@@ -87,3 +87,21 @@
     margin: 0 1rem;
     cursor: pointer;
 }
+
+@media (max-width: 640px) { 
+    .formBox {
+        min-width: 50%;
+    }
+
+    .email {
+        width: 90%;
+        border-radius: 5px;
+        min-height: 1.5rem;
+    }
+
+    .password {
+        width: 90%;
+        min-height: 1.5rem;
+        border-radius: 5px;
+    }
+  } 

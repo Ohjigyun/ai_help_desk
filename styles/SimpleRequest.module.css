@@ -53,3 +53,15 @@
     100% { left: 10px; top: 0px; }
   }
   
+
+  @media (max-width: 640px) { 
+    .balloon {
+      width: 65%;
+      height: 25%;
+    }
+  
+    .balloonBox {
+      font-size: 15px;
+    }
+  
+  } 
