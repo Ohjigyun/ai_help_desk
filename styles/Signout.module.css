@@ -53,3 +53,9 @@
     margin: 0.5rem;
     cursor: pointer;
 }
+
+@media (max-width: 640px) { 
+    .Box {
+        width: 40%;
+    }
+} 

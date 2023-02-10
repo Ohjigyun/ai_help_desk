@@ -116,4 +116,14 @@
         padding-left: 0.5rem;
         box-shadow: rgba(0, 0, 0, 0.1) -4px 9px 25px -6px;
     }
+
+    .robot {
+        width: 10%;
+        height: 10%;
+    }
+
+    .astronaut {
+        width: 10%;
+        height: 10%;
+    }
 } 
