@@ -114,7 +114,7 @@ export default function Signup() {
                         />
                     </div>
                     <div className={styles.buttonBox}>
-                        <button className={styles.signupButton}>제출</button>
+                        <button className={styles.signupButton}>회원 가입</button>
                     </div>
                 </form>
                 <div className={styles.line}><span className={styles.lineText}> OR </span></div>
