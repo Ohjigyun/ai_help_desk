@@ -24,6 +24,14 @@
     border-top: 0.5px solid #d4d4d4;
 }
 
+.blinkChat {
+    animation: blink-effect 1s step-end infinite;
+}
+
+.hiddenChat {
+    display: none;
+}
+
 .chat {
     padding: 2rem 1rem;
     width: 37.5rem;
@@ -93,3 +101,9 @@
 .lastChat{
     margin-bottom: 20%;
 }
+
+@keyframes blink-effect {
+    50% {
+      opacity: 0;
+    }
+  }

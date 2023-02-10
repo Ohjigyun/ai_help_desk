@@ -88,7 +88,7 @@ export default function ComplexRequest() {
             {index % 2 === 0 ? <Image className={styles.astronaut} src={astronaut} alt="astronaut icon"/>
                                 :
                                 <Image className={qnaLog.length - 1 === index ? `${styles.robot} ${styles.lastChat}` : `${styles.robot}`} src={robot} alt="robot icon"/>}
-            <div className={qnaLog.length - 1 === index ? `${styles.chat} ${styles.lastChat}` : `${styles.chat}`}>{qna}</div>
+            <div className={qnaLog.length - 1 === index ? `${styles.chat} ${styles.lastChat}` : `${styles.chat}`}>{qna}<span className={qnaLog.length - 1 === index ? styles.blinkChat : styles.hiddenChat}>|</span></div>
           </div>
         ))}
         <div className={styles.questionBox}>
