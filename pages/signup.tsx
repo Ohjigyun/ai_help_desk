@@ -9,7 +9,6 @@ import styles from '../styles/Signup.module.css'
 
 export default function Signup() {
     const router = useRouter()
-    const provider = new GoogleAuthProvider()
     
     const [email, setEmail] = useState<string>('')
     const [password, setPassword] = useState<string>('')
@@ -30,7 +29,8 @@ export default function Signup() {
     }
 
     const googleLogin = () => {
-        console.log(auth)
+        const provider = new GoogleAuthProvider()
+
         signInWithPopup(auth, provider)
             .then((result) => {
             // This gives you a Google Access Token. You can use it to access the Google API.
@@ -56,6 +56,8 @@ export default function Signup() {
     }
 
     const githubLogin = () => {
+        const provider = new GithubAuthProvider()
+
         signInWithPopup(auth, provider)
         .then((result) => {
           // This gives you a GitHub Access Token. You can use it to access the GitHub API.
@@ -66,6 +68,8 @@ export default function Signup() {
           const user = result.user;
           // IdP data available using getAdditionalUserInfo(result)
           // ...
+          console.log(user)
+          router.push('/')
         }).catch((error) => {
           // Handle Errors here.
           const errorCode = error.code;
