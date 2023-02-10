@@ -15,7 +15,6 @@ export default function Logout() {
     const signoutHandler = () => {
         signOut(auth)
             .then(() => {
-                console.log('signout is success')
                 router.push('/')
             })
             .catch((error) => {

@@ -19,7 +19,6 @@ export default function Signup() {
             .then((userCredential) => {
                 const user = userCredential.user
                 router.push('/')
-                console.log(user)
             })
             .catch((error) => {
                 const errorCode = error.code;
@@ -40,7 +39,6 @@ export default function Signup() {
             const user = result.user;
             // IdP data available using getAdditionalUserInfo(result)
             // ...
-            console.log(user)
             router.push('/')
             }).catch((error) => {
             // Handle Errors here.
@@ -68,7 +66,6 @@ export default function Signup() {
           const user = result.user;
           // IdP data available using getAdditionalUserInfo(result)
           // ...
-          console.log(user)
           router.push('/')
         }).catch((error) => {
           // Handle Errors here.
@@ -84,7 +81,6 @@ export default function Signup() {
 
     useEffect(() => {
         const user = auth.currentUser
-        console.log(user)
 
         if(user) {
             router.push('/signout')
